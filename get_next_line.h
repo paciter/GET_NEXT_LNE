@@ -6,8 +6,18 @@
 # include <string.h>
 # include <unistd.h>
 
-#define BUFFER_SIZE 1024
+typedef struct	s_list
+{
+	char			*content;
+	struct s_list	*next;
+}				t_list;
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1024
+# endif
+
 char *get_next_line(int fd)
+
 
 
 #endif
