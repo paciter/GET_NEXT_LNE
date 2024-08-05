@@ -6,36 +6,25 @@
 /*   By: rufaccia <rufaccia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 15:05:48 by rufaccia          #+#    #+#             */
-/*   Updated: 2024/08/02 15:33:37 by rufaccia         ###   ########.fr       */
+/*   Updated: 2024/08/05 18:53:35 by rufaccia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-#include "get_next_line.h"
-
-// Vérifie si un saut de ligne existe dans la stash
 int	found_newline(t_list *stash)
 {
-	int		i;
 	t_list	*current;
+	int		i;
 
-	if (stash == NULL)
-	{
-		return (0);
-	}
-	current = ft_lst_get_last(stash);
+	current = stash;
 	i = 0;
-	while (current->content[i])
-	{
-		if (current->content[i] == '\n')
-			return (1);
-		i++;
-	}
+	if (current->content[i] == '\n')
+		return (1);
 	return (0);
 }
 
-// Retourne un pointeur vers le dernier nœud dans notre stash
+// Retourne un pointeur vers le dernier noeud dans la stash
 t_list	*ft_lst_get_last(t_list *stash)
 {
 	t_list	*current;
@@ -48,7 +37,7 @@ t_list	*ft_lst_get_last(t_list *stash)
 	return (current);
 }
 
-// Calcule la taille de la ligne de caractères
+// Génère une ligne de la stash
 void	generate_line(char **line, t_list *stash)
 {
 	int	i;
@@ -74,12 +63,12 @@ void	generate_line(char **line, t_list *stash)
 }
 
 // Libère toute la stash
-void	free_stash(t_list **stash)
+void	free_stash(t_list *stash)
 {
-	t_list *current;
-	t_list *next;
+	t_list	*current;
+	t_list	*next;
 
-	current = *stash;
+	current = stash;
 	while (current)
 	{
 		free(current->content);
@@ -87,7 +76,6 @@ void	free_stash(t_list **stash)
 		free(current);
 		current = next;
 	}
-	*stash = NULL;
 }
 
 // Calcule la longueur d'une chaîne de caractères
@@ -101,43 +89,34 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-
-
 /*
 int	found_newline(t_list *stash)
 {
-	int		i;
 	t_list	*current;
+	int		i;
 
-	if (stash == NULL)
-	{
-		return (0);
-	}
-	current = ft_lst_get_last(stash);
+	current = stash
 	i = 0;
-	while (current->content[i])
-	{
-		if (current->content[i] == '\n')
-			return (1);
-		i++;
-	}
+	if (current->content[i] == '\n')
+		return (1);
+	i++;
 	return (0);
 }
 
 // return un pointeur au dernier noeud dans notre stash
 void t_list	*ft_lst_get_last(include)
 {
-	t_list	*current;                   
+	t_list	*current;
 
 	current = stash;
 	while (current && current->next)
 	{
-	    current = current->next
-    }
+		current = current->next
+	}
 	return (current);
 }
-
 // calcul la taille de chars sur la ligne
+
 void	generate_line(char **line, t_list *stash)
 {
 	int	i;
@@ -165,8 +144,7 @@ void	generate_line(char **line, t_list *stash)
 // free toute la stash
 void	free_stash(void)
 {
-	t_list *current;
-	t_list *next;
+	t_list	*next;
 
 	current = stash;
 	while (current)
@@ -178,11 +156,11 @@ void	free_stash(void)
 	}
 }
 
-int ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
 	int	i;
-	i=0;
-	while(str[i])
-	return(i);
-}
-*/
+
+	i = 0;
+	while (str[i])
+		return (i);
+}*/

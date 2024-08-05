@@ -6,7 +6,7 @@
 /*   By: rufaccia <rufaccia@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 15:04:46 by rufaccia          #+#    #+#             */
-/*   Updated: 2024/08/02 14:17:30 by rufaccia         ###   ########.fr       */
+/*   Updated: 2024/08/05 18:53:10 by rufaccia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,18 @@ typedef struct s_list
 }					t_list;
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1024
+#  define BUFFER_SIZE 1
 # endif
 
-int 				ft_strlen(char *str);
+int					ft_strlen(char *str);
 char				*get_next_line(int fd);
 void				read_and_stash(int fd, t_list **stash, int *readed_ptr);
 void				add_to_stash(t_list **stash, char *buf, int readed);
 void				extract_line(t_list *stash, char **line);
 void				clean_stash(t_list **stash);
 int					found_newline(t_list *stash);
-t_list		*ft_lst_get_last(t_list *stash);
+t_list				*ft_lst_get_last(t_list *stash);
 void				generate_line(char **line, t_list *stash);
-void				free_stash(t_list **stash);
+void				free_stash(t_list *stash);
 
 #endif
